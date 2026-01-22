@@ -9,7 +9,6 @@
       <form @submit.prevent="submitForm" class="contact-form">
         <div class="form-group">
           <label class="form-label">
-            <span class="label-icon">📋</span>
             Objet
           </label>
           <div class="input-wrapper">
@@ -29,12 +28,11 @@
 
         <div class="form-group">
           <label class="form-label">
-            <span class="label-icon">✍️</span>
             Description
           </label>
           <textarea 
             v-model="description" 
-            rows="4" 
+            rows="3" 
             class="form-textarea"
             :class="{ filled: description }"
             placeholder="Décrivez votre demande en détail..."
@@ -44,7 +42,6 @@
 
         <div class="form-group">
           <label class="form-label">
-            <span class="label-icon">📞</span>
             Téléphone
           </label>
           <input 
@@ -117,11 +114,9 @@ export default {
 
 <style scoped>
 .form-wrapper {
-  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 120px 20px 40px 20px; /* Espace pour la navbar */
   background: white; /* Fond blanc */
 }
 
@@ -129,7 +124,6 @@ export default {
   width: 100%;
   max-width: 400px; /* Réduit de 600px à 500px */
   background: white;
-  border-radius: 20px;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1); /* Ombre plus douce */
   border: 1px solid #e2e8f0; /* Bordure subtile */
   overflow: hidden;
@@ -150,10 +144,9 @@ export default {
 }
 
 .form-header {
-  background: #0071E3;
-  padding: 35px 25px; /* Réduit légèrement */
+  padding: 5px 5px; /* Réduit légèrement */
   text-align: center;
-  color: white;
+  color: #262626;
 }
 
 .form-title {
@@ -174,7 +167,7 @@ export default {
 }
 
 .form-group {
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   position: relative;
 }
 
@@ -182,7 +175,7 @@ export default {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 7px;
   font-weight: 600;
   color: #2d3748;
   font-size: 15px;
@@ -247,7 +240,6 @@ export default {
 
 .form-textarea {
   resize: vertical;
-  min-height: 100px;
 }
 
 .char-count {

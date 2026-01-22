@@ -1,9 +1,7 @@
 <template>
-  <section class="py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
-    <div class="container mx-auto px-4">
-      <h2 class="text-4xl font-bold text-center mb-16 text-gray-800">
-        À Propos
-      </h2>
+  <section class="py-16 bg-gradient-to-b from-gray-50 to-white overflow-hidden px-4">
+    <div class="container mx-auto max-w-6xl">
+      
       
       <div
         ref="sectionRef"
@@ -12,7 +10,7 @@
           isVisible ? 'animate-in' : 'opacity-0'
         ]"
       >
-        <!-- Image -->
+        
         <div :class="[
           'relative group flex-shrink-0',
           isHome ? 'w-1/3' : 'w-1/2'
@@ -32,7 +30,6 @@
           </div>
         </div>
 
-        <!-- Texte -->
         <div :class="[
           'space-y-6 flex-shrink-0',
           isHome ? 'w-2/3' : 'w-1/2'
@@ -51,7 +48,7 @@
             'transform transition-all duration-700 delay-300',
             isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'
           ]">
-            <p class="text-gray-600 text-lg leading-relaxed">
+            <p class="text-gray-600 text-lg leading-relaxed text-justify">
               <template v-if="isHome">
                 Découvrez des produits conçus avec précision, performance et
                 élégance. Notre objectif est de vous offrir une technologie
@@ -79,10 +76,11 @@
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'
             ]"
           >
-            <button class="group relative px-8 py-3 bg-blue-400 text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105">
-             <RouterLink>
-                 <span class="relative z-10">Voir plus</span>
-             </RouterLink>
+            <button class="group relative px-5 py-3 bg-blue-400 text-white font-semibold rounded-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105">
+                 <RouterLink to="/apropos" class="relative z-10">
+                  
+                  Voir plus
+                </RouterLink>
               <div class="absolute inset-0 bg-blue-900 to-blue-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div class="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300">
                 <div class="absolute inset-0 bg-white transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700 skew-x-12"></div>

@@ -35,8 +35,9 @@
                 isHomePage ? ( isScrolled ? 'text-black' : 'text-white') : 'text-black'
               ]"
           >
-         
+            <RouterLink to="/products">
             Produits
+            </RouterLink>
             
           </a>
         </li>

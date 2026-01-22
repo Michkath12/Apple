@@ -165,10 +165,8 @@ export default {
 <style scoped>
 .map-container {
   max-width: 900px;
-  margin: 100px auto 50px auto; /* Ajout de margin-top pour éviter la navbar */
-  padding: 20px;
   border: 1px solid #e0e0e0;
-  border-radius: 8px;
+  border-radius: px;
   background-color: #f9f9f9;
   position: relative; /* Important pour le z-index */
   z-index: 1; /* S'assure que la carte reste sous la navbar */
@@ -261,20 +259,5 @@ export default {
   display: none; /* Cache les contrôles par défaut de Leaflet */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .map-container {
-    margin-top: 80px; /* Moins d'espace sur mobile */
-    padding: 15px;
-  }
-  
-  .map {
-    height: 300px !important;
-  }
-  
-  .control-btn {
-    padding: 8px 12px;
-    font-size: 14px;
-  }
-}
+
 </style>

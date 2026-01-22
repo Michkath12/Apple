@@ -1,39 +1,34 @@
 <template>
-  <section class="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+  <section class="min-h-screen flex flex-col items-center justify-center bg-gray-100 px-4">
+    <h2 class="text-4xl font-bold text-center mb-6 text-gray-800">
+       Contatez-nous
+      </h2>
     <div
       ref="contactSection"
-      class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2
+      class="max-w-6xl w-full grid grid-cols-1 md:grid-cols-2
              rounded-3xl overflow-hidden shadow-xl bg-white
              opacity-0 translate-y-6 transition-all duration-700"
       :class="isVisible && 'opacity-100 translate-y-0'"
     >
 
-      <!-- Image -->
       <div class="hidden md:block relative">
         <img
-          src="../assets/images/humm.jpg"
+          src="../assets/images/bbbb.jpg"
           class="absolute inset-0 w-full h-full object-cover"
         />
-
-        <!-- Overlay + texte -->
-        <div class="relative z-10 h-full flex items-end p-8 bg-black/40">
-          <p class="text-white text-lg font-semibold">
-            Contactez-nous pour plus d’informations
-          </p>
-        </div>
+ 
       </div>
 
-      <!-- Formulaire -->
       <div class="p-10">
         <h3 class="text-2xl font-bold mb-6">
           Envoyez-nous un message
         </h3>
 
-        <form @submit.prevent="submitForm" class="space-y-5">
+        <form @submit.prevent="submitForm" class="space-y-5 flex flex-col items-center">
           <!-- Objet -->
-          <div>
+          <div class="w-full">
             <label class="text-sm font-semibold text-gray-600">
-              📋 Objet
+              Objet
             </label>
             <select
               v-model="selectedObject"
@@ -48,10 +43,10 @@
             </select>
           </div>
 
-          <!-- Description -->
-          <div>
+          
+          <div class="w-full">
             <label class="text-sm font-semibold text-gray-600">
-              ✍️ Description
+               Description
             </label>
             <textarea
               v-model="description"
@@ -67,10 +62,10 @@
             </p>
           </div>
 
-          <!-- Téléphone -->
-          <div>
+          
+          <div class="w-full">
             <label class="text-sm font-semibold text-gray-600">
-              📞 Téléphone
+               Téléphone
             </label>
             <input
               type="tel"
@@ -86,14 +81,14 @@
           <button
             type="submit"
             :disabled="!isFormValid"
-            class="w-full py-2.5 rounded-lg text-sm font-semibold text-white
-                   bg-blue-600 hover:bg-blue-700 transition
-                   disabled:opacity-50 disabled:cursor-not-allowed"
+            class="px-5 py-2.5 rounded-lg text-sm font-semibold text-white
+                   bg-blue-400 hover:bg-blue-900 transition
+                   disabled:opacity-50 disabled:cursor-not-allowed self-start"
           >
             Envoyer
           </button>
 
-          <!-- Succès -->
+         
           <p
             v-if="showSuccess"
             class="text-center text-green-600 text-sm font-semibold animate-fade-in"

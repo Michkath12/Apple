@@ -4,7 +4,7 @@ import Propos from '../components/Propos.vue';
 
 </script>
 <template>
-    <div class="about-page">
+    <div class="about-page relative top-15">
     
         <Propos variant="about" />
    </div>
