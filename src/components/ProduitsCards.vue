@@ -1,8 +1,29 @@
 <template>
   <!-- Card -->
+   <form
+        class="max-w-2xl mx-auto mb-12"
+        @submit.prevent="searchProducts"
+        v-if="!props.is_home"
+    >
+        <div class="flex rounded-lg shadow-sm">
+        <input
+            type="search"
+            v-model="searchQuery"
+            class="flex-1 px-4 py-2 border-t border-b border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            placeholder="Search for products"
+        />
+
+        <button
+            type="submit"
+            class="px-4 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700"
+        >
+            Search
+        </button>
+        </div>
+            </form>
    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
     <div
-      v-for="(product, index) in props.is_home ? products.slice(0, 3) : paginatedProducts"
+      v-for="(product, index) in props.is_home ? filteredProducts.slice(0, 3) : paginatedProducts"
       :key="index"
       :class="[
         'bg-white rounded-2xl overflow-hidden transition duration-300',
@@ -54,6 +75,14 @@
         </button>
       </div>
     </div>
+  </div>
+  <div v-if="!filteredProducts || filteredProducts.length === 0">
+      <div v-if="!searchQuery">
+        No data
+      </div>
+      <div v-else>
+        Aucun produit correspondant à "{{ searchQuery }}"
+      </div>
   </div>
 
   <div v-if="!props.is_home" class="flex items-center justify-between px-6 py-3 text-sm">
@@ -120,15 +149,47 @@
 <script setup> 
 import { ref, computed } from 'vue'
 
-const props = defineProps({ is_home : Boolean, }) 
+const props = defineProps({ is_home : Boolean,produits: {
+    type: Array,
+    default: () => []
+  } }) 
 import productsData from '../components/produits.json'
- const products = productsData 
- const pagination = ref({
+
+const produits = ref(productsData)
+
+// Variable pour la recherche
+const searchQuery = ref('');
+
+// Fonction pour la recherche (quand on clique sur le bouton)
+const searchProducts = () => {
+  // La recherche se fait automatiquement via filteredProducts
+  console.log('Recherche avec:', searchQuery.value);
+};
+
+// Produits filtrés - SE MET À JOUR AUTOMATIQUEMENT
+const filteredProducts = computed(() => {
+  // Si la recherche est vide, on montre tous les produits
+  if (!searchQuery.value.trim()) {
+    return produits.value;
+  }
+  
+  const query = searchQuery.value.toLowerCase();
+  
+  // Recherche dans le nom ET la catégorie ET la description
+  return produits.value.filter(produit => 
+    produit.name.toLowerCase().includes(query) ||
+    produit.category.toLowerCase().includes(query) ||
+    (produit.description && produit.description.toLowerCase().includes(query))
+  );
+});
+
+
+const pagination = ref({
       pageIndex: 0,
       pageSize: 6,
   })
 const paginationInfo = computed(() => {
-      const total = products.length
+      const total = filteredProducts.value.length
       if (total === 0) return 'Aucune donnée'
 
       const start = pagination.value.pageIndex * pagination.value.pageSize + 1
@@ -139,10 +200,10 @@ const paginationInfo = computed(() => {
   const paginatedProducts = computed(() => {
       const start = pagination.value.pageIndex * pagination.value.pageSize
       const end = start + pagination.value.pageSize
-      return products.slice(start, end)
+      return filteredProducts.value.slice(start, end)
   })
   const totalPages = computed(() =>
-        Math.ceil(products.length / pagination.value.pageSize)
+        Math.ceil(filteredProducts.value.length / pagination.value.pageSize)
     )
 
     const pages = computed(() => Array.from({ length: totalPages.value }, (_, i) => i))
