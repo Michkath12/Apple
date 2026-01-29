@@ -55,16 +55,8 @@
                 innovante qui s'adapte parfaitement à votre quotidien.
               </template>
               <template v-else>
-                Découvrez des produits conçus avec précision, performance et élégance. 
-                Notre objectif est de vous offrir une technologie innovante qui s'adapte 
-                parfaitement à votre quotidien. Depuis notre création, nous nous engageons 
-                à repousser les limites de l'innovation pour créer des expériences 
-                exceptionnelles. Chaque produit est le résultat d'années de recherche et 
-                développement, conçu avec une attention méticuleuse aux détails. Nous croyons 
-                que la technologie doit être accessible, intuitive et belle. Notre équipe 
-                passionnée travaille sans relâche pour transformer votre vision en réalité, 
-                en combinant design moderne et fonctionnalités avancées. Rejoignez-nous dans 
-                cette aventure vers un avenir où la technologie enrichit véritablement la vie.
+                Apple, fondée en 1976 par Steve Jobs, Steve Wozniak et Ronald Wayne, est devenue l’une des entreprises technologiques les plus influentes au monde grâce à sa capacité à innover et à anticiper les usages. Sa vision repose sur la création de produits simples, performants et intuitifs qui améliorent le quotidien des utilisateurs. Apple place l’innovation au cœur de sa stratégie, non pour multiplier les fonctionnalités, mais pour proposer des solutions nouvelles et cohérentes. La qualité de ses produits se reflète dans le choix de matériaux haut de gamme, la fiabilité et la durabilité, tandis que le design épuré et fonctionnel constitue une véritable signature de la marque, alliant esthétique et expérience utilisateur.
+
               </template>
             </p>
           </div>

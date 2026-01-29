@@ -15,7 +15,7 @@
 
         <button
             type="submit"
-            class="px-4 py-2 bg-blue-600 text-white rounded-r-lg hover:bg-blue-700"
+            class="px-4 py-2 bg-blue-400 text-white rounded-r-lg hover:bg-blue-700"
         >
             Search
         </button>
@@ -68,7 +68,7 @@
             'rounded-xl text-white font-medium transition',
             props.is_home
               ? 'px-5 py-2 bg-blue-400 hover:bg-blue-900'
-              : 'px-4 py-1.5 bg-blue-500 hover:bg-blue-700 text-sm'
+              : 'px-4 py-1.5 bg-blue-400 hover:bg-blue-700 text-sm'
           ]"
         >
           Détail

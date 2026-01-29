@@ -22,8 +22,8 @@
     
     <div class="content">
       <div class="font-extrabold text-white 
-             text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
-        50 years in the game and still 
+             text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
+        50 ans d’aventure, toujours à <br>
         <span class="text-blue-400 typing-word">{{ displayedWord }}<span class="cursor">|</span></span>
       </div>
     </div>
@@ -44,7 +44,7 @@
 import { ref, onMounted, onUnmounted } from 'vue'
 import videoFile from '../assets/images/Qgh.webm'
 
-const words = ["winning", "exploring", "innovating", "creating", "growing", "learning"]
+const words = ["innover", "explorer", "créer",  "apprendre"]
 const displayedWord = ref('')
 let wordIndex = 0
 let charIndex = 0
@@ -168,7 +168,7 @@ onUnmounted(() => {
   text-align: center;
   color: white;
   padding: 2rem;
-  max-width: 800px;
+  max-width: 1000px;
   animation: fadeInUp 1s ease-out;
 }
 

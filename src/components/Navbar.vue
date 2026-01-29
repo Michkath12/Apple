@@ -38,7 +38,7 @@
             <span 
               :class="[
                 'absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full',
-                isHomePage ? (isScrolled ? 'bg-blue-600' : 'bg-white') : 'bg-blue-600'
+                isHomePage ? (isScrolled ? 'bg-blue-400' : 'bg-white') : 'bg-blue-400'
               ]"
             ></span>
           </RouterLink>
@@ -53,7 +53,7 @@
               'focus:outline-none focus:ring-2 focus:ring-offset-2',
               isHomePage && !isScrolled 
                 ? 'bg-white text-gray-900 hover:bg-gray-100 focus:ring-white' 
-                : 'bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500'
+                : 'bg-blue-400 text-white hover:bg-blue-700 focus:ring-blue-500'
             ]"
           >
             Connexion
@@ -133,7 +133,7 @@
 
           <!-- Bouton Connexion Mobile -->
           <button 
-            class="w-full mt-4 px-4 py-3 bg-blue-600 text-white rounded-lg font-semibold text-base
+            class="w-full mt-4 px-4 py-3 bg-blue-400 text-white rounded-lg font-semibold text-base
                    hover:bg-blue-700 active:bg-blue-800 transition-colors duration-200
                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
           >
@@ -237,17 +237,17 @@ a {
   z-index: 50;
 }
 
-/* Empêcher le text-wrap sur les liens */
+
 a {
   white-space: nowrap;
 }
 
-/* Style pour le lien actif */
+
 .router-link-active {
   position: relative;
 }
 
-/* Amélioration du focus pour l'accessibilité */
+
 button:focus-visible,
 a:focus-visible {
   outline: 2px solid currentColor;
