@@ -208,7 +208,7 @@ input:focus {
   textarea,
   input,
   button {
-    min-height: 48px;
+    min-height: 44px;
   }
   
   /* Désactiver les effets hover sur tactile */
@@ -216,14 +216,19 @@ input:focus {
     transform: none;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   }
+  
+  /* Augmenter la zone de tap pour les labels */
+  label {
+    padding: 0.25rem 0;
+  }
 }
 
-/* Landscape mobile */
+/* Landscape mobile - optimisation pour orientation paysage */
 @media (max-height: 600px) and (orientation: landscape) {
   section {
     min-height: auto;
-    padding-top: 60px;
-    padding-bottom: 60px;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
   }
   
   h2 {
@@ -231,15 +236,25 @@ input:focus {
     font-size: 1.5rem;
   }
   
-  .min-h- {
-    min-height: 80px;
+  .space-y-4 > * + * {
+    margin-top: 0.75rem;
+  }
+  
+  textarea {
+    min-height: 80px !important;
   }
 }
 
-/* Très petit mobile (iPhone SE, etc.) */
+/* Très petits mobiles (iPhone SE, Galaxy Fold, etc.) */
 @media (max-width: 375px) {
+  section {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
   h2 {
     font-size: 1.75rem;
+    margin-bottom: 1.25rem;
   }
   
   h3 {
@@ -249,17 +264,78 @@ input:focus {
   .space-y-4 > * + * {
     margin-top: 0.875rem;
   }
+  
+  /* Réduire le padding du formulaire */
+  .p-6 {
+    padding: 1.25rem;
+  }
 }
 
-/* Tablette portrait */
+/* Petits mobiles */
+@media (max-width: 640px) {
+  /* Optimiser l'espacement du formulaire */
+  .rounded-2xl {
+    border-radius: 1rem;
+  }
+  
+  /* Bouton pleine largeur sur mobile pour meilleure UX */
+  button[type="submit"] {
+    width: 100%;
+  }
+}
+
+/* Tablette portrait - optimisation spécifique */
 @media (min-width: 640px) and (max-width: 1023px) {
   /* Le formulaire prend plus d'espace sur tablette */
   .max-w-6xl {
     max-width: 640px;
   }
+  
+  /* Augmenter légèrement les espacements */
+  .space-y-5 > * + * {
+    margin-top: 1.5rem;
+  }
+  
+  /* Textarea plus grande sur tablette */
+  textarea {
+    min-height: 140px !important;
+  }
 }
 
-/* Desktop large */
+/* Tablette landscape */
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: landscape) {
+  section {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .max-w-6xl {
+    max-width: 720px;
+  }
+}
+
+/* Desktop standard */
+@media (min-width: 1024px) {
+  /* Animation de l'image au survol */
+  img {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Optimiser le hover du bouton */
+  button[type="submit"]:not(:disabled):hover {
+    transform: translateY(-2px);
+  }
+  
+  button[type="submit"]:not(:disabled):active {
+    transform: translateY(0);
+  }
+}
+
+/* Desktop large (1280px+) */
 @media (min-width: 1280px) {
   h2 {
     font-size: 3rem;
@@ -268,34 +344,21 @@ input:focus {
   h3 {
     font-size: 2rem;
   }
+  
+  /* Augmenter l'espace du formulaire */
+  .xl\:p-12 {
+    padding: 3.5rem;
+  }
 }
 
-/* Amélioration de l'accessibilité - mode sombre système */
-@media (prefers-color-scheme: dark) {
-  /* Si tu veux supporter le mode sombre plus tard */
-  /* Décommente et adapte :
-  section {
-    background-color: #1a202c;
+/* Desktop extra large (1536px+) */
+@media (min-width: 1536px) {
+  .max-w-6xl {
+    max-width: 80rem;
   }
   
-  .bg-white {
-    background-color: #2d3748;
-  }
-  
-  .text-gray-800 {
-    color: #e2e8f0;
-  }
-  */
-}
-
-/* Animation de l'image au survol (desktop uniquement) */
-@media (min-width: 1024px) {
-  img {
-    transition: transform 0.5s ease-in-out;
-  }
-  
-  img:hover {
-    transform: scale(1.05);
+  h2 {
+    font-size: 3.5rem;
   }
 }
 
@@ -311,5 +374,79 @@ input:focus-visible,
 textarea:focus-visible {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
+}
+
+/* Amélioration de l'affichage du select sur iOS */
+@supports (-webkit-touch-callout: none) {
+  select {
+    padding-right: 2.5rem;
+  }
+}
+
+/* Optimisation pour les écrans haute résolution */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* Mode réduit de mouvement pour l'accessibilité */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  img:hover {
+    transform: none;
+  }
+  
+  button:hover {
+    transform: none;
+  }
+}
+
+/* Support du mode sombre (optionnel - préparé pour future implémentation) */
+@media (prefers-color-scheme: dark) {
+  /* Décommente et adapte si besoin :
+  section {
+    background-color: #1a202c;
+  }
+  
+  .bg-white {
+    background-color: #2d3748;
+  }
+  
+  .text-gray-800 {
+    color: #e2e8f0;
+  }
+  
+  .border-gray-300 {
+    border-color: #4a5568;
+  }
+  
+  .bg-gray-50 {
+    background-color: #374151;
+  }
+  */
+}
+
+/* Optimisation pour les écrans pliables */
+@media (min-width: 540px) and (max-width: 720px) {
+  .max-w-6xl {
+    max-width: 95%;
+  }
+}
+
+/* Fix pour Safari mobile - éviter le zoom sur focus */
+@media screen and (max-width: 640px) {
+  input[type="tel"],
+  select,
+  textarea {
+    font-size: 16px;
+  }
 }
 </style>
