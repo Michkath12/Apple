@@ -447,6 +447,7 @@ textarea:focus-visible {
   select,
   textarea {
     font-size: 16px;
+    
   }
 }
 </style>
